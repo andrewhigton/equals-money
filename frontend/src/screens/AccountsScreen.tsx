@@ -36,8 +36,8 @@ const AccountsScreen: React.FC = () => {
 
 	const accountsScreen: any = useAppSelector((state) => state?.accountsScreen['screen'])
 
-	const personalAccounts = useAppSelector((state) => state.personalAccounts['payments'])
-	const corporateAccounts = useAppSelector((state) => state.corporateAccounts['payments'])
+	const personalAccounts = useAppSelector((state) => state.personalAccounts['data'])
+	const corporateAccounts = useAppSelector((state) => state.corporateAccounts['data'])
 	let accountSelection: any;
 	// console.log('personalAccounts ', personalAccounts) 
 	

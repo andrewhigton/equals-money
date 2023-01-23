@@ -42,54 +42,21 @@ const HomeScreen: React.FC = ({
 	
 	const dispatch = useAppDispatch();
 	const personalPaymentsList = useAppSelector((state) => state?.personalAccounts)
-	// const accountSelection = useAppSelector((state) => state?.accountsScreen)
-	//console.log('sate ', personalPaymentsList)
-	
-	const buttonState = 'business'
 
 	const handleChange = (accountSelection: string) => {
 		dispatch(clearAccountsScreen(''))
-		//needs rewriting for account, balance and transactions
-		//fetch the details here
-		//console.log('homescreen account', accountSelection)
 		if (accountSelection === 'business') {
-		// 	console.log('account', accountSelection)
 			dispatch(setAccountsScreen('business'))
-			// dispatch(fetchCorporateBalances()) 
 	} else if (accountSelection === 'personal') {
 			dispatch(setAccountsScreen('personal'))
-	// 		fetchPersonalAccounts() 
 	} else {
-			// dispatch(fetchPersonalBalances())
-			// setAccountsScreen('personal') 
 		 	dispatch(setAccountsScreen('joint')) 
 		//}
 	}
 }
 
-
-
-// const handleChange = (account: string) => {
-// 		if (account === 'business') {
-// 			setAccountsScreen('business')
-// 			fetchCorporateBalances() 
-// 	} else if (account === 'personal') {
-// 			setAccountsScreen('personal')
-// 			fetchPersonalBalances() 
-// 	} else {
-// 			// setAccountsScreen('personal') 
-// 		 	setAccountsScreen('personal') 
-// 	}
-// }
-
-	// useEffect(() => {
-  //   dispatch(fetchPersonalAccounts())
-  // 	}, [])
-
 	const loading = false;	
 	const error = false;
-	// const payments: any = data;
-	//const { loading, error, payments } = personalPaymentsList;
 	
 	return (
 		
@@ -139,7 +106,7 @@ const HomeScreen: React.FC = ({
 							<Card.Text className="mb-2 text-muted fair-style">Fair</Card.Text>
 							<Card.Text className="mb-2 text-muted fx-style">FX</Card.Text>
 							</div>
-							<Card.Text className="card-text">Read your Retail Accounts, Balances & Transactions</Card.Text>
+							<Card.Text className="card-text">Read your Personal Retail Accounts, Balances & Transactions</Card.Text>
 							<Link to="/selection">
 							<Button 
 							variant="outline-primary" 
@@ -163,7 +130,7 @@ const HomeScreen: React.FC = ({
 						<i className="fa-solid fa-plus plus-logo"></i>
 						<i className="equals-sign equals-sign-joint"></i>
 						</div>
-						<Card.Text className="card-text">Your Personal and Business selection, Balances & Transactions</Card.Text>
+						<Card.Text className="card-text">Your Personal and Business Accounts, Balances & Transactions</Card.Text>
 						<Link to="/selection">
 						<Button 
 						variant="primary" 
@@ -182,18 +149,6 @@ const HomeScreen: React.FC = ({
 			
 			)
 		}
-
-// const mapStateToProps = ( state : RootState) => ({
-//     personalPayments: state?.personalPayments,
-//     //personalPaymentsList: state.personalPayments,
-// })
-
-// const mapDispatchToProps = (dispatch: any) => {
-//   return {
-//      fetchPersonalAccounts: () => dispatch(fetchPersonalAccounts()),
- 
-//   }
-// }
 
 export default HomeScreen;
 

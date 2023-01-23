@@ -21,6 +21,16 @@ interface PersonalBalancesError {
   payload: {};
 }
 
+interface GetPersonalTransactions {
+  type: ActionType.GET_PERSONAL_TRANSACTIONS;
+  payload: {};
+}
+
+interface PersonalTransactionsError {
+  type: ActionType.PERSONAL_TRANSACTIONS_ERROR;
+  payload: {};
+}
+
 
 
 
@@ -28,7 +38,9 @@ export type PersonalPaymentsActions =
   | GetPersonalPayments
   | PersonalPaymentsError
   | GetPersonalAccounts
-  | PersonalBalancesError;
+  | PersonalBalancesError
+  | GetPersonalTransactions
+  | PersonalTransactionsError;
 
 
 
@@ -77,12 +89,25 @@ interface CorporateBalancesError {
   payload: {};
 }
 
+interface GetCorporateTransactions {
+  type: ActionType.GET_CORPORATE_TRANSACTIONS;
+  payload: {};
+
+}
+
+interface CorporateTransactionsError {
+  type: ActionType.CORPORATE_TRANSACTIONS_ERROR;
+  payload: {};
+}
+
 
 export type CorporateActions =
   | GetCorporateAccounts
   | CorporateAccountsError
   | GetCorporateBalances
   | CorporateBalancesError
+  | GetCorporateTransactions
+  | CorporateTransactionsError
   ;
 
 

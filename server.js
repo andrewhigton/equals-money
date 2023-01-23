@@ -38,6 +38,20 @@ app.get('/api/corporatebalances', async (req, res) => {
 })
 
 
+app.get('/api/corporatetransactions', async (req, res) => {
+ 
+  try {
+        const response = await axios.get('https://sandbox.equals.co/api/corporate/v3.1/transactions')               
+        res.send(response.data.Data.Transaction)
+    }
+    catch (err) {
+        console.log(err)
+    }
+})
+
+
+
+
 app.get('/api/personalaccounts', async (req, res) => {
 
 
@@ -52,12 +66,21 @@ app.get('/api/personalaccounts', async (req, res) => {
 
 app.get('/api/personalbalances', async (req, res) => {
 
-  
-   //console.log('personal balancess valled ', res)
   try {
         const response = await axios.get('https://sandbox.equals.co/api/retail/v3.1/balances')
-        // console.log(response.data.Data.Account)
+ 
         res.send(response.data.Data.Balance)
+    }
+    catch (err) {
+        console.log(err)
+    }
+})
+
+app.get('/api/personaltransactions', async (req, res) => {
+ 
+  try {
+        const response = await axios.get('https://sandbox.equals.co/api/retail/v3.1/transactions')               
+        res.send(response.data.Data.Transaction)
     }
     catch (err) {
         console.log(err)

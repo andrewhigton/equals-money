@@ -166,7 +166,7 @@ text-align: center;
 }
 
 .nav-link {
-  color: white;
+  color: white !important;
 }
 
 
@@ -299,7 +299,19 @@ a:active { text-decoration: none; }
   color: white;
   border-radius: 15px;
   text-align: center;
-  font-size: 16px;
+  height: 5vh;
+  padding: 13px;
+  padding-bottom: 10px;
+}
+
+.personal-page-button {
+  margin-left: 10%;
+  width: 80%;
+  background-color: #4c74c9;
+  color: white;
+  border-radius: 15px;
+  border-color: #4c74c9;
+  text-align: center;
   height: 5vh;
   padding: 13px;
   padding-bottom: 10px;

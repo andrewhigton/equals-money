@@ -25,7 +25,7 @@ interface AppProps {
 // interface IRootState {
 //   personalPayments: {};
 // }
-
+  
 
 const App: React.FC<AppProps> = ({
   // state,

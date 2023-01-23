@@ -2,14 +2,14 @@ import { ActionType } from '../actions/types';
 import { PersonalPaymentsActions } from './indexTypes';
 
 export interface PersonalPaymentsType {
-  payments: [];
+  data: [];
   loading: boolean;
   error: string;
   // PersonalPayments: [];
 };
 
 const initialState: PersonalPaymentsType = {
-  payments: [],
+  data: [],
   loading: true,
   error: ''
 };
@@ -29,7 +29,7 @@ const personalReducer = (
           case ActionType.GET_PERSONAL_ACCOUNTS:
           return {
             ...state,
-            payments: payload,
+            data: payload,
             loading: false,
             error: null
           };
@@ -38,11 +38,10 @@ const personalReducer = (
             ...state,
             error: payload,
           }; 
-
          case ActionType.GET_PERSONAL_BALANCES:
           return {
             ...state,
-            payments: payload,
+            data: payload,
             loading: false,
             error: null
           };
@@ -51,31 +50,19 @@ const personalReducer = (
             ...state,
             error: payload,
           }; 
-          // case ActionType.GET_FILMS:
-          // return {
-          //   ...state,
-          //   films: payload,
-          //   filmLoading: false
-          // };
-          // case ActionType.UPDATE_FILM:
-          // return {
-          //   ...state,
-          //   film: payload,
-          //   filmLoading: false
-          // };
-          // case ActionType.PERSONAL_PAYMENTS_ERROR:
-          // return {
-          //   ...state,
-          //   // error: payload,
-          // };
-          //this needed?
-          // case ActionType.CLEAR_FILM:
-          // return {
-          //   ...state,
-          //   film: null,
-          //   films: [],
-          //   filmLoading: false
-          // };
+        case ActionType.GET_PERSONAL_TRANSACTIONS:
+          return {
+            ...state,
+            data: payload,
+            loading: false,
+            error: null
+          };
+          case ActionType.PERSONAL_TRANSACTIONS_ERROR:
+          return {
+            ...state,
+            error: payload,
+          }; 
+        
           default:
             return state
         }

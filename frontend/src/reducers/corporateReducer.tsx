@@ -2,14 +2,14 @@ import { ActionType } from '../actions/types';
 import { CorporateActions } from './indexTypes';
 
 export interface CorporatePaymentsType {
-  payments: [];
+  data: [];
   loading: boolean;
   error: string;
   // PersonalPayments: [];
 };
 
 const initialState: CorporatePaymentsType = {
-  payments: [],
+  data: [],
   loading: true,
   error: ''
 };
@@ -29,21 +29,21 @@ const corporateReducer = (
           case ActionType.GET_CORPORATE_ACCOUNTS:
           return {
             ...state,
-            payments: payload,
+            data: payload,
             loading: false,
             error: null
           };
           case ActionType.CORPORATE_ACCOUNTS_ERROR:
           return {
             ...state,
-            payments: payload,
+            data: payload,
             loading: false,
             error: null
           };
           case ActionType.GET_CORPORATE_BALANCES:
           return {
             ...state,
-            payments: payload,
+            data: payload,
             loading: false,
             error: null
           };
@@ -52,14 +52,19 @@ const corporateReducer = (
             ...state,
             // error: payload,
           };
-          //this needed?
-          // case ActionType.CLEAR_FILM:
-          // return {
-          //   ...state,
-          //   film: null,
-          //   films: [],
-          //   filmLoading: false
-          // };
+          case ActionType.GET_CORPORATE_TRANSACTIONS:
+          return {
+            ...state,
+            data: payload,
+            loading: false,
+            error: null
+          };
+          case ActionType.CORPORATE_TRANSACTIONS_ERROR:
+          return {
+            ...state,
+            // error: payload,
+          };
+         
           default:
             return state
         }

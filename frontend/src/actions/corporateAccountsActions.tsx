@@ -5,7 +5,7 @@ import { Dispatch } from 'redux';
 
 // Get all  corporate Accounts
 export const fetchCorporateAccounts = () => async (dispatch: Dispatch<CorporateActions>) => {
-  //console.log('called action')
+  
   try {
     const res = await axios.get('http://localhost:5000/api/corporateaccounts');
     // console.log('res ', res)
@@ -23,10 +23,11 @@ export const fetchCorporateAccounts = () => async (dispatch: Dispatch<CorporateA
 
 // Get all corporate balances
 export const fetchCorporateBalances = () => async (dispatch: Dispatch<CorporateActions>) => {
+  // console.log('called  corp balances')
   try {
     //this isn;t working why?
     const res = await axios.get('http://localhost:5000/api/corporatebalances');
-    //console.log('corp balances action response ', res)
+    // console.log('corp balances response ', res)
     dispatch({
       type: ActionType.GET_CORPORATE_BALANCES,
       payload: res.data
@@ -34,6 +35,26 @@ export const fetchCorporateBalances = () => async (dispatch: Dispatch<CorporateA
   } catch (err) {
     dispatch({
       type: ActionType.CORPORATE_BALANCES_ERROR,
+      payload: {},
+    });
+    }  
+  };
+
+
+  // Get all corporate balances
+export const fetchCorporateTransactions = () => async (dispatch: Dispatch<CorporateActions>) => {
+  // console.log('called  corp balances')
+  try {
+    //this isn;t working why?
+    const res = await axios.get('http://localhost:5000/api/corporatetransactions');
+    // console.log('corp balances response ', res)
+    dispatch({
+      type: ActionType.GET_CORPORATE_TRANSACTIONS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: ActionType.CORPORATE_TRANSACTIONS_ERROR,
       payload: {},
     });
     }  
